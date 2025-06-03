@@ -1,31 +1,29 @@
-const boton = document.getElementById("agregar");
-const contenedor = document.getElementById("contenedor");
+const form = document.getElementById('formulario');
+const campo = document.getElementById("tarea");
+const lista = document.getElementById("lista");
 
-const frases = [
-  "El DOM es genial 😎",
-  "Aprender JS es divertido 🎉",
-  "¡Estás creando elementos!",
-  "Esto es 100% dinámico 🚀",
-  "Sigue así, genio 💪"
-];
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-boton.addEventListener("click", () => {
-    const indice = Math.floor(Math.random() * frases.length);
+    const campo = tarea.value.trim();
+    if (campo === "") {
+        alert("Por favor, preencha o campo.");
+        return;
+    }
 
-    const div = document.createElement("div"); // contenedor
+    const li = document.createElement("li");
+    li.textContent = campo;
 
-    const parrafo = document.createElement("p");
-    parrafo.textContent = frases[indice];
+    const btneliminar = document.createElement("button");
+    btneliminar.textContent = "Eliminar";
 
-    const eliminar = document.createElement("button");
-    eliminar.textContent = "Eliminar";
-
-    eliminar.addEventListener("click", () => {
-        div.remove(); // eliminás todo el bloque
+    btneliminar.addEventListener("click", () => {
+        li.remove();
     });
 
-    div.appendChild(parrafo);
-    div.appendChild(eliminar);
-    contenedor.appendChild(div);
-});
+    li.appendChild(btneliminar);
+    lista.appendChild(li);
 
+    tarea.value = "";
+
+});
