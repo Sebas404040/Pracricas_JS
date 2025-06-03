@@ -1,32 +1,31 @@
-const parrafo = document.getElementById("contador");
-const boton = document.getElementById("incrementar");
-const restar = document.getElementById("restar");
-const resetear = document.getElementById("resetear");
+const boton = document.getElementById("agregar");
+const contenedor = document.getElementById("contenedor");
 
-let contador = 0;
+const frases = [
+  "El DOM es genial 😎",
+  "Aprender JS es divertido 🎉",
+  "¡Estás creando elementos!",
+  "Esto es 100% dinámico 🚀",
+  "Sigue así, genio 💪"
+];
 
 boton.addEventListener("click", () => {
-    contador++;
-    parrafo.textContent = contador;
-    if (contador >= 1) {
-        parrafo.style.color = "black";
-    } else {
-        parrafo.style.color = "green";
-    }
-});
+    const indice = Math.floor(Math.random() * frases.length);
 
-restar.addEventListener("click", () => {
-    contador--;
-    parrafo.textContent = contador;
-    if (contador >= 1) {
-        parrafo.style.color = "black";
-    } else {
-        parrafo.style.color = "green";
-    }
-});
+    const div = document.createElement("div"); // contenedor
 
-resetear.addEventListener("dblclick", () => {
-    contador = 0;
-    parrafo.textContent = contador;
+    const parrafo = document.createElement("p");
+    parrafo.textContent = frases[indice];
+
+    const eliminar = document.createElement("button");
+    eliminar.textContent = "Eliminar";
+
+    eliminar.addEventListener("click", () => {
+        div.remove(); // eliminás todo el bloque
+    });
+
+    div.appendChild(parrafo);
+    div.appendChild(eliminar);
+    contenedor.appendChild(div);
 });
 
