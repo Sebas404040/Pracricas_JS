@@ -6,14 +6,19 @@
 </head>
 <body>
 
-  <h2>Mis Tareas</h2>
-
   <form id="formulario">
-    <input type="text" id="tarea" placeholder="Escribí una tarea" required />
-    <button type="submit">Agregar</button>
-  </form>
+  <input type="text" id="campo" placeholder="Escribí una tarea" required />
+  <button type="submit">Agregar</button>
+</form>
 
-  <ul id="lista"></ul>
+<ul id="lista"></ul>
+
+<style>
+  .hecho {
+    text-decoration: line-through;
+    color: gray;
+  }
+</style>
 
   <script src="script.js"></script>
 </body>
