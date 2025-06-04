@@ -6,20 +6,18 @@
 </head>
 <body>
 
-  <form id="formulario">
-  <input type="text" id="campo" placeholder="Escribí una tarea" required />
+<h2>🛒 Lista de Compras</h2>
+
+<form id="formulario">
+  <input type="text" id="producto" placeholder="Agregar producto..." />
   <button type="submit">Agregar</button>
 </form>
 
 <ul id="lista"></ul>
 
-<style>
-  .hecho {
-    text-decoration: line-through;
-    color: gray;
-  }
-</style>
-
+<!-- Bonus (opcional) -->
+<p>Total: <span id="total">0</span></p>
+<p>Pendientes: <span id="pendientes">0</span></p>
   <script src="script.js"></script>
 </body>
 </html>

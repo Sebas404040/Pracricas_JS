@@ -1,12 +1,12 @@
-const formulatio = document.getElementById("formulario");
-const campo = document.getElementById("campo");
+const formulario = document.getElementById("formulario");
+const campo = document.getElementById("producto"); // ⚠️ Asegurate que el ID sea correcto
 const lista = document.getElementById("lista");
 
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
-    const item = campo.value.trim();
-    if (item === "") {
-        alert("Ingrese un item");
+    const valor = campo.value.trim();
+    if (valor === "") {
+        alert("Por favor, ingrese un valor.");
         return;
     }
 
@@ -16,28 +16,23 @@ formulario.addEventListener("submit", (e) => {
     checkbox.type = "checkbox";
 
     const span = document.createElement("span");
-    span.textContent = item;
+    span.textContent = valor;
+    span.style.margin = "0 8px";
 
     checkbox.addEventListener("change", () => {
-        span.classList.toggle("tachado");
-        if (checkbox.checked) {
-            span.style.textDecoration = "line-through";
-        } else {
-            span.style.textDecoration = "none";
-        }
-    })
+        span.style.textDecoration = checkbox.checked ? "line-through" : "none";
+    });
 
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Eliminar";
-
-    deleteButton.addEventListener("click", () => {
+    const botonEliminar = document.createElement("button");
+    botonEliminar.textContent = "Eliminar";
+    botonEliminar.addEventListener("click", () => {
         li.remove();
     });
 
     li.appendChild(checkbox);
     li.appendChild(span);
-    li.appendChild(deleteButton);
+    li.appendChild(botonEliminar);
     lista.appendChild(li);
-
     campo.value = "";
 });
+
