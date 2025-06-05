@@ -6,18 +6,23 @@ const estudiantes = [
   { nombre: "Sofía", edad: 18 }
 ];
 
-const estudiantes20Años = estudiantes.filter(estudiantes => estudiantes.edad >= 20);
-console.log(estudiantes20Años);
+// 1. Edad de menor a mayor
+const porEdadAsc = [...estudiantes].sort((a, b) => a.edad - b.edad);
+console.log("📈 Edad de menor a mayor:");
+porEdadAsc.forEach(e => console.log(`Nombre: ${e.nombre}, Edad: ${e.edad}`));
 
-const existeLuis = estudiantes.some(estudiante => estudiante.nombre === "Luis");
-console.log(existeLuis); 
+// 2. Edad de mayor a menor
+const porEdadDesc = [...estudiantes].sort((a, b) => b.edad - a.edad);
+console.log("\n📉 Edad de mayor a menor:");
+porEdadDesc.forEach(e => console.log(`Nombre: ${e.nombre}, Edad: ${e.edad}`));
 
+// 3. Nombre A → Z
+const porNombreAZ = [...estudiantes].sort((a, b) => a.nombre.localeCompare(b.nombre));
+console.log("\n🔤 Nombre A → Z:");
+porNombreAZ.forEach(e => console.log(`Nombre: ${e.nombre}, Edad: ${e.edad}`));
 
-const estudianteMenor = estudiantes.find(estudiantes => estudiantes.edad < 20);
-console.log(estudianteMenor);
+// 4. Nombre Z → A
+const porNombreZA = [...estudiantes].sort((a, b) => b.nombre.localeCompare(a.nombre));
+console.log("\n🔡 Nombre Z → A:");
+porNombreZA.forEach(e => console.log(`Nombre: ${e.nombre}, Edad: ${e.edad}`));
 
-const estudianteMayor = estudiantes.findIndex(estudiantes => estudiantes.edad >= 23);
-console.log(estudianteMayor);
-
-const estudiantesNombres = estudiantes.map(estudiantes => estudiantes.nombre);
-console.log(estudiantesNombres);
